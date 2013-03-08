@@ -1,0 +1,40 @@
+.navbar-press-top {
+    margin-bottom: 35px;
+
+    .container > .offset1 {
+        margin-left: 135px;
+    }
+
+    .navbar-inner {
+        background: white url('@{baseImagePath}/top_navbar_bg.png') 0 0 repeat-x;
+        height: 23px;
+        min-height: 23px;
+        border: 0px;
+
+        .box-shadow(none);
+    }
+
+    .nav > li > a {
+        font-size: @small-font-size;
+        padding: 0 10px;
+        margin: 0 20px 0 0;
+
+        color: @top-navbar-gray;
+
+        .box-shadow(none);
+        text-shadow: none;
+        text-decoration: underline;
+    }
+
+    .nav .active a {
+        background: white url('@{baseImagePath}/top_navbar_active_bg.png') 0 0 repeat-x;
+        height: 23px;
+        min-height: 23px;
+
+        color: @white;
+        text-decoration: none;
+
+        .box-shadow(0);
+        text-shadow: 0;
+    }
+}
