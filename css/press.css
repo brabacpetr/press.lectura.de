@@ -1,0 +1,91 @@
+/* Colors */
+/* Font sizes */
+/* Images */
+.navbar-press-top {
+  margin-bottom: 35px;
+}
+.navbar-press-top .container > .offset1 {
+  margin-left: 135px;
+}
+.navbar-press-top .navbar-inner {
+  background: #ffffff url('../img/top_navbar_bg.png') 0 0 repeat-x;
+  height: 23px;
+  min-height: 23px;
+  border: 0px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.navbar-press-top .nav > li > a {
+  font-size: 0.86em;
+  padding: 0 10px;
+  margin: 0 20px 0 0;
+  color: #868686;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  text-shadow: none;
+  text-decoration: underline;
+}
+.navbar-press-top .nav .active a {
+  background: #ffffff url('../img/top_navbar_active_bg.png') 0 0 repeat-x;
+  height: 23px;
+  min-height: 23px;
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-box-shadow: 0;
+  -moz-box-shadow: 0;
+  box-shadow: 0;
+  text-shadow: 0;
+}
+.language-selector {
+  background: #9e9e9e;
+  height: 100%;
+  font-size: 0.86em;
+  line-height: 23px;
+}
+.language-selector a {
+  color: #ffffff;
+  padding: 0 10px;
+}
+.logo-wrapper {
+  margin-left: 0;
+}
+.logo-container {
+  margin-bottom: 35px;
+}
+.navbar-main .navbar-inner {
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #499b25;
+  background-image: -moz-linear-gradient(top, #50a929, #3e8520);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#50a929), to(#3e8520));
+  background-image: -webkit-linear-gradient(top, #50a929, #3e8520);
+  background-image: -o-linear-gradient(top, #50a929, #3e8520);
+  background-image: linear-gradient(to bottom, #50a929, #3e8520);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff50a929', endColorstr='#ff3e8520', GradientType=0);
+  border: 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.navbar-main .nav > li {
+  padding-left: 20px;
+  padding-right: 20px;
+  border-right: 1px solid #ffffff;
+}
+.navbar-main .nav > li > a {
+  color: #ffffff;
+  text-shadow: none;
+}
+.navbar-main .nav > li > a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.search-wrapper form {
+  margin-bottom: 0;
+}
+.search-wrapper .input-append {
+  margin-top: 5px;
+}
