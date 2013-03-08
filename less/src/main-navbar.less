@@ -1,0 +1,30 @@
+.navbar-main {
+    margin-bottom: @baseMarginBottom;
+
+    .navbar-inner {
+        padding-left: 5px;
+        padding-right: 5px;
+
+        #gradient > .vertical(@main-navbar-light, @main-navbar-dark);
+        border: 0;
+        .border-radius(5px);
+    }
+
+    .nav {
+        & > li {
+            padding-left: 20px;
+            padding-right: 20px;
+            border-right: 1px solid @white;
+
+            & > a {
+                color: @white;
+                text-shadow: none;
+
+                &:hover {
+                    color: @white;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
