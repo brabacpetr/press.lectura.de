@@ -2,6 +2,10 @@
 /* Font sizes */
 /* Images */
 /* Layout */
+h1 {
+  font-size: 2em;
+  line-height: 1.2em;
+}
 h2 {
   font-size: 1.8em;
   line-height: 1.3em;
@@ -22,17 +26,29 @@ p {
   line-height: 1em;
   color: #4b4b4b;
 }
-.btn-green {
-  background: #459423;
-  border: 1px solid #2e6217;
+.btn-dark {
   color: #ffffff;
   text-decoration: underline;
   text-shadow: none;
 }
+.btn-dark:hover {
+  text-decoration: underline;
+}
+.btn-green {
+  background: #459423;
+  border: 1px solid #2e6217;
+}
 .btn-green:hover {
   background: #58bd2d;
   color: #2e6217;
-  text-decoration: underline;
+}
+.btn-blue {
+  background: #154374;
+  border: 1px solid #123965;
+}
+.btn-blue:hover {
+  background: #2575ca;
+  color: #123965, 10%;
 }
 .icon-rss {
   background: transparent url("../img/icon_rss.png") 0 0 no-repeat;
@@ -252,5 +268,51 @@ p {
   margin-left: 20px;
 }
 .list-wrapper .article-right > .side-wrapper .btn {
+  float: right;
+}
+.sidebar > h3 {
+  color: #154374;
+  font-size: 1.3em;
+  line-height: 1.5em;
+  font-weight: normal;
+  padding-top: 5px;
+  border-bottom: 1px solid #999999;
+}
+.sidebar > h3 .icon-rss {
+  margin-top: 0;
+}
+.sidebar .btn-dark {
+  margin-top: 10px;
+}
+.events {
+  padding-bottom: 10px;
+  border-bottom: 4px double #dddddd;
+}
+.events .event {
+  display: block;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 20px 0;
+  border-bottom: 1px dotted #dddddd;
+}
+.events .event .content {
+  float: left;
+  width: 48%;
+}
+.events .event h4 {
+  margin-top: 0;
+  font-size: 1em;
+  color: #333333;
+}
+.events .event .image {
+  float: left;
+  margin-right: 25px;
+  width: 100px;
+  overflow: hidden;
+}
+.events .event .big-arrow {
+  width: 19px;
+  height: 48px;
+  background: transparent url("../img/big-arr-right.png") 0 0 no-repeat;
   float: right;
 }

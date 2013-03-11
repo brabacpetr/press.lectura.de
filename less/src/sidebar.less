@@ -1,0 +1,60 @@
+.sidebar {
+    & > h3 {
+        color: @sidebar-blue;       
+        font-size: 1.3em;
+        line-height: 1.5em;
+        font-weight: normal;
+        padding-top: 5px;
+        border-bottom: 1px solid @h2-gray;
+
+        .icon-rss {
+            margin-top: 0;
+        }
+    }
+
+    .btn-dark {
+        margin-top: 10px;
+    }
+}
+
+.events {
+    padding-bottom: 10px;
+    border-bottom: 4px double @image-border-gray;
+
+    .event {
+        display: block;
+        text-decoration: none;
+        background: @white;
+        padding: 20px 0;
+        border-bottom: 1px dotted @image-border-gray;
+
+        &:hover {
+
+        }
+    
+        .content {
+            float: left;
+            width: 48%;
+        }
+
+        h4 {
+            margin-top: 0;
+            font-size: 1em;
+            color: @base-text-color;
+        }
+
+        .image {
+            float: left;
+            margin-right: 25px;
+            width: 100px;
+            overflow: hidden;
+        }
+
+        .big-arrow {
+            width: 19px;
+            height: 48px;
+            background: transparent url("@{baseImagePath}/big-arr-right.png") 0 0 no-repeat;
+            float: right;
+        }
+    }
+}
