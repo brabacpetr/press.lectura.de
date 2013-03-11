@@ -17,12 +17,48 @@
         border: 1px solid @image-border-gray;
         .border-radius(5px);
         padding: 5px;
-        margin-right: 20px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
 
-    .main-article {
+    .article {
         padding-bottom: 20px;
+        margin-bottom: 30px;
         border-bottom: 1px dotted @image-border-gray;
+
+        & > .footer {
+            color: @article-footer-gray;
+            font-size: 0.8em;
+
+            a {
+                color: @article-footer-gray;
+                text-decoration: underline;
+            }
+        }
+
+        h3 {
+            margin-top: 0;
+        }
+    }
+
+    .article-main > .footer {
+        float: left;
+    }
+
+    .article-left > .side-wrapper {
+        float: left;
+        margin-right: 20px;
+
+        .btn {
+            float: left;
+        }
+    }
+
+    .article-right > .side-wrapper {
+        float: right;
+        margin-left: 20px;
+
+        .btn {
+            float: right;
+        }
     }
 }

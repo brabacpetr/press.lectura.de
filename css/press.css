@@ -17,6 +17,23 @@ h4 {
   font-size: 1.4em;
   line-height: 1em;
 }
+p {
+  font-size: 1em;
+  line-height: 1em;
+  color: #4b4b4b;
+}
+.btn-green {
+  background: #459423;
+  border: 1px solid #2e6217;
+  color: #ffffff;
+  text-decoration: underline;
+  text-shadow: none;
+}
+.btn-green:hover {
+  background: #58bd2d;
+  color: #2e6217;
+  text-decoration: underline;
+}
 .icon-rss {
   background: transparent url("../img/icon_rss.png") 0 0 no-repeat;
   width: 16px;
@@ -133,10 +150,38 @@ h4 {
   -moz-border-radius: 5px;
   border-radius: 5px;
   padding: 5px;
-  margin-right: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
-.list-wrapper .main-article {
+.list-wrapper .article {
   padding-bottom: 20px;
+  margin-bottom: 30px;
   border-bottom: 1px dotted #dddddd;
+}
+.list-wrapper .article > .footer {
+  color: #959595;
+  font-size: 0.8em;
+}
+.list-wrapper .article > .footer a {
+  color: #959595;
+  text-decoration: underline;
+}
+.list-wrapper .article h3 {
+  margin-top: 0;
+}
+.list-wrapper .article-main > .footer {
+  float: left;
+}
+.list-wrapper .article-left > .side-wrapper {
+  float: left;
+  margin-right: 20px;
+}
+.list-wrapper .article-left > .side-wrapper .btn {
+  float: left;
+}
+.list-wrapper .article-right > .side-wrapper {
+  float: right;
+  margin-left: 20px;
+}
+.list-wrapper .article-right > .side-wrapper .btn {
+  float: right;
 }
