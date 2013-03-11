@@ -1,0 +1,28 @@
+.flag {
+    width: 16px;
+    height: 11px;
+    background: url("@{baseImagePath}/flags.png") no-repeat;
+}
+
+.icon-flag-cn {background-position: -16px 0}
+.icon-flag-cz {background-position: -32px 0}
+.icon-flag-de {background-position: -48px 0}
+.icon-flag-es {background-position: 0 -11px}
+.icon-flag-fr {background-position: -16px -11px}
+.icon-flag-gb {background-position: -32px -11px}
+.icon-flag-it {background-position: -48px -11px}
+.icon-flag-pl {background-position: 0 -22px}
+.icon-flag-ru {background-position: -16px -22px}
+
+.dropdown-menu > li > a:hover > [class^="icon-flag-"],
+.dropdown-menu > li > a:focus > [class^="icon-flag-"],
+.dropdown-menu > li > a:hover > [class*=" icon-flag-"],
+.dropdown-menu > li > a:focus > [class*=" icon-flag-"],
+.dropdown-menu > .active > a > [class^="icon-flag-"],
+.dropdown-menu > .active > a > [class*=" icon-flag-"],
+.dropdown-submenu:hover > a > [class^="icon-flag-"],
+.dropdown-submenu:focus > a > [class^="icon-flag-"],
+.dropdown-submenu:hover > a > [class*=" icon-flag-"],
+.dropdown-submenu:focus > a > [class*=" icon-flag-"] {
+    background-image: url("@{baseImagePath}/flags.png");
+}

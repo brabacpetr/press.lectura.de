@@ -13,4 +13,23 @@
     .icon {
         margin-top: 0;
     }
+
+    .dropdown-menu {
+        min-width: auto;
+        width: 100%;
+        margin-top: 0;
+        border: 0;
+        background: @language-selector-gray;
+        .border-radius(0);
+
+        a {
+            color: @white;
+            padding: 3px 10px;
+        }
+
+        & > li > a:hover,
+        & > li > a:focus {
+            #gradient > .vertical(@main-navbar-light, @main-navbar-dark);
+        }
+    }
 }

@@ -39,6 +39,50 @@ p {
   width: 16px;
   height: 16px;
 }
+.flag {
+  width: 16px;
+  height: 11px;
+  background: url("../img/flags.png") no-repeat;
+}
+.icon-flag-cn {
+  background-position: -16px 0;
+}
+.icon-flag-cz {
+  background-position: -32px 0;
+}
+.icon-flag-de {
+  background-position: -48px 0;
+}
+.icon-flag-es {
+  background-position: 0 -11px;
+}
+.icon-flag-fr {
+  background-position: -16px -11px;
+}
+.icon-flag-gb {
+  background-position: -32px -11px;
+}
+.icon-flag-it {
+  background-position: -48px -11px;
+}
+.icon-flag-pl {
+  background-position: 0 -22px;
+}
+.icon-flag-ru {
+  background-position: -16px -22px;
+}
+.dropdown-menu > li > a:hover > [class^="icon-flag-"],
+.dropdown-menu > li > a:focus > [class^="icon-flag-"],
+.dropdown-menu > li > a:hover > [class*=" icon-flag-"],
+.dropdown-menu > li > a:focus > [class*=" icon-flag-"],
+.dropdown-menu > .active > a > [class^="icon-flag-"],
+.dropdown-menu > .active > a > [class*=" icon-flag-"],
+.dropdown-submenu:hover > a > [class^="icon-flag-"],
+.dropdown-submenu:focus > a > [class^="icon-flag-"],
+.dropdown-submenu:hover > a > [class*=" icon-flag-"],
+.dropdown-submenu:focus > a > [class*=" icon-flag-"] {
+  background-image: url("../img/flags.png");
+}
 .navbar-press-top {
   margin-bottom: 35px;
 }
@@ -88,6 +132,31 @@ p {
 }
 .language-selector .icon {
   margin-top: 0;
+}
+.language-selector .dropdown-menu {
+  min-width: auto;
+  width: 100%;
+  margin-top: 0;
+  border: 0;
+  background: #9e9e9e;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.language-selector .dropdown-menu a {
+  color: #ffffff;
+  padding: 3px 10px;
+}
+.language-selector .dropdown-menu > li > a:hover,
+.language-selector .dropdown-menu > li > a:focus {
+  background-color: #499b25;
+  background-image: -moz-linear-gradient(top, #50a929, #3e8520);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#50a929), to(#3e8520));
+  background-image: -webkit-linear-gradient(top, #50a929, #3e8520);
+  background-image: -o-linear-gradient(top, #50a929, #3e8520);
+  background-image: linear-gradient(to bottom, #50a929, #3e8520);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff50a929', endColorstr='#ff3e8520', GradientType=0);
 }
 .logo-wrapper {
   margin-left: 0;
