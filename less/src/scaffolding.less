@@ -16,3 +16,24 @@ h4 {
     font-size: 1.4em;
     line-height: 1em;
 }
+
+p {
+    font-size: 1em;
+    line-height: 1em;
+    color: @article-content-gray;
+}
+
+.btn-green {
+    background: @button-green;
+    border: 1px solid @button-green-border;
+    color: @white;
+    text-decoration: underline;
+
+    text-shadow: none;
+
+    &:hover {
+        background: lighten(@button-green, 10%);
+        color: @button-green-border;
+        text-decoration: underline;
+    }
+}
