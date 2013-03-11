@@ -5,7 +5,7 @@
         line-height: 1.5em;
         font-weight: normal;
         padding-top: 5px;
-        border-bottom: 1px solid @h2-gray;
+        border-bottom: 1px solid @heading-border-gray;
 
         .icon-rss {
             margin-top: 0;
@@ -19,17 +19,17 @@
 
 .events {
     padding-bottom: 10px;
-    border-bottom: 4px double @image-border-gray;
+    border-bottom: 4px double @heading-border-gray;
 
     .event {
         display: block;
         text-decoration: none;
         background: @white;
         padding: 20px 0;
-        border-bottom: 1px dotted @image-border-gray;
+        border-bottom: 1px dotted @heading-border-gray;
 
         &:hover {
-
+            /* @todo think of hover */
         }
     
         .content {
@@ -41,6 +41,11 @@
             margin-top: 0;
             font-size: 1em;
             color: @base-text-color;
+            text-decoration: underline;
+        }
+
+        p {
+            color: @sidebar-text-gray;
         }
 
         .image {
@@ -57,4 +62,27 @@
             float: right;
         }
     }
+}
+
+.events-popular {
+    .event {
+        padding: 7px 0;
+
+        p {
+            text-decoration: underline;
+            width: 90%;
+            line-height: 1.2em;
+        }
+
+        .big-arrow {
+            width: 13px;
+            height: 24px;
+            background-image: url("@{baseImagePath}/mid-arr-right.png");
+        }
+    }
+}
+
+.events-banner {
+    margin-top: 20px;
+    padding-bottom: 25px;
 }

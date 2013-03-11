@@ -10,7 +10,7 @@ h2 {
   font-size: 1.8em;
   line-height: 1.3em;
   color: #999999;
-  border-bottom: 1px solid #999999;
+  border-bottom: 1px solid #cccccc;
   width: 100%;
 }
 h3 {
@@ -23,7 +23,7 @@ h4 {
 }
 p {
   font-size: 1em;
-  line-height: 1em;
+  line-height: 1.3em;
   color: #4b4b4b;
 }
 .btn-dark {
@@ -276,7 +276,7 @@ p {
   line-height: 1.5em;
   font-weight: normal;
   padding-top: 5px;
-  border-bottom: 1px solid #999999;
+  border-bottom: 1px solid #cccccc;
 }
 .sidebar > h3 .icon-rss {
   margin-top: 0;
@@ -286,14 +286,18 @@ p {
 }
 .events {
   padding-bottom: 10px;
-  border-bottom: 4px double #dddddd;
+  border-bottom: 4px double #cccccc;
 }
 .events .event {
   display: block;
   text-decoration: none;
   background: #ffffff;
   padding: 20px 0;
-  border-bottom: 1px dotted #dddddd;
+  border-bottom: 1px dotted #cccccc;
+}
+.events .event:hover {
+  /* @todo think of hover */
+
 }
 .events .event .content {
   float: left;
@@ -303,6 +307,10 @@ p {
   margin-top: 0;
   font-size: 1em;
   color: #333333;
+  text-decoration: underline;
+}
+.events .event p {
+  color: #666666;
 }
 .events .event .image {
   float: left;
@@ -315,4 +323,21 @@ p {
   height: 48px;
   background: transparent url("../img/big-arr-right.png") 0 0 no-repeat;
   float: right;
+}
+.events-popular .event {
+  padding: 7px 0;
+}
+.events-popular .event p {
+  text-decoration: underline;
+  width: 90%;
+  line-height: 1.2em;
+}
+.events-popular .event .big-arrow {
+  width: 13px;
+  height: 24px;
+  background-image: url("../img/mid-arr-right.png");
+}
+.events-banner {
+  margin-top: 20px;
+  padding-bottom: 25px;
 }
