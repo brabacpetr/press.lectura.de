@@ -99,6 +99,31 @@ p {
 .dropdown-submenu:focus > a > [class*=" icon-flag-"] {
   background-image: url("../img/flags.png");
 }
+.lectura-logo {
+  display: block;
+  background-image: url("../img/lectura-logo-sprite.png");
+  background-repeat: no-repeat;
+}
+.lectura-valuation {
+  width: 205px;
+  height: 52px;
+  background-position: -175px -54px;
+}
+.lectura-shop {
+  width: 175px;
+  height: 54px;
+  background-position: 0 -54px;
+}
+.lectura {
+  width: 161px;
+  height: 50px;
+  background-position: 0 0;
+}
+.lectura-specs {
+  width: 185px;
+  height: 50px;
+  background-position: -161px 0;
+}
 .navbar-press-top {
   margin-bottom: 35px;
 }
@@ -340,4 +365,43 @@ p {
 .events-banner {
   margin-top: 20px;
   padding-bottom: 25px;
+}
+.footer-container {
+  margin-top: 50px;
+  border-top: 10px solid #cccccc;
+  background: #333333;
+}
+.footer-container .categories-wrapper {
+  padding: 45px;
+  background: #459423;
+}
+.footer-container .categories-wrapper .categories {
+  list-style-type: none;
+  margin: 35px 0 0 0;
+}
+.footer-container .categories-wrapper .categories a {
+  line-height: 2em;
+  color: #ffffff;
+  text-decoration: none;
+}
+.footer-container .categories-wrapper .categories a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.footer-container .products-wrapper {
+  padding: 45px;
+}
+.footer-container .products-wrapper .lectura-logo {
+  margin-bottom: 10px;
+}
+.footer-container .products-wrapper p {
+  color: #c3c3c3;
+}
+.footer-container .products-wrapper a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.footer-container .products-wrapper a:hover {
+  color: #ffffff;
+  text-decoration: none;
 }
