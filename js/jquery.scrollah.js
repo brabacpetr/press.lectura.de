@@ -85,7 +85,7 @@
             for (var i = 1; i <= length; i++) {
                 even = i % 2 === 0;
                 coef = even ? 1 : -1;
-                item = this._itemsQ[i];
+                item = this._itemsQ[i-1];
 
                 (function (scrollBottom, item) {
                     recalculateItemPosition(scrollBottom, item, coef);
