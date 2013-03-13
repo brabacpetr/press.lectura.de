@@ -278,9 +278,6 @@ p {
 .list-wrapper .article h3 {
   margin-top: 0;
 }
-.list-wrapper .article-main > .footer {
-  float: left;
-}
 .list-wrapper .article-left > .side-wrapper {
   float: left;
   margin-right: 20px;
@@ -288,12 +285,21 @@ p {
 .list-wrapper .article-left > .side-wrapper .btn {
   float: left;
 }
+.list-wrapper .article-left .footer {
+  float: right;
+}
 .list-wrapper .article-right > .side-wrapper {
   float: right;
   margin-left: 20px;
 }
 .list-wrapper .article-right > .side-wrapper .btn {
   float: right;
+}
+.list-wrapper .article-right .footer {
+  float: left;
+}
+.list-wrapper .article-main .footer {
+  float: left;
 }
 .sidebar > h3 {
   color: #154374;
