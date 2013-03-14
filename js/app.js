@@ -6,7 +6,8 @@ $(document).ready(function() {
     if (articleList) {
         articleList.Scrollah({
             itemSelector: '.article-slide',
-            scrollElement: $(window)
+            scrollElement: $(window),
+            easeFn: 'tan'
         });
     }
 });

@@ -3,8 +3,51 @@
     var pluginName = "Scrollah",
         defaults = {
             itemSelector: '',
-            scrollElementSelector: 'window'
-        };
+            scrollElementSelector: 'window',
+            easeFn: 'sin'
+        },
+        posFns = {
+            'sin': function(scrollBottom, item, directionCoef) {
+                var itemHeight = item.height() - 0.4 * item.height(),
+                    itemTop = item.offset().top,
+                    scrollOverItem = scrollBottom - itemTop,
+                    ratio = item.width() / itemHeight,
+                    decrease = (Math.PI / 2) / item.width();
+                    position = scrollOverItem > itemHeight ? 0 : directionCoef * item.width(),
+                    itemLeft = item.position().left,
+                    start = parseFloat(item.attr('data-sin')) || Math.PI / 2;
+                
+                
+                if (scrollOverItem >= 0 && scrollOverItem <= itemHeight) {
+                    position = (directionCoef * (itemHeight - scrollOverItem) * ratio) * Math.sin(start);
+                    start -= decrease;
+                }
+
+                item.attr('data-sin', start);
+                if (item.position().left !== position) {
+                    item.css('left', position);
+                } else {
+                    item.attr('data-sin', 0);
+                }
+            },
+            'tan': function(scrollBottom, item, directionCoef) {
+                var itemHeight = item.height() + 0.4 * item.height(),
+                    itemTop = item.offset().top,
+                    scrollOverItem = scrollBottom - itemTop,
+                    itemLeft = item.position().left,
+                    position = scrollOverItem > itemHeight ? 0 : directionCoef * item.width(),
+                    start = scrollOverItem * (1 / itemHeight) * (Math.PI / 4),
+                    ratio = item.width() / itemHeight;
+
+                if (scrollOverItem >= 0 && scrollOverItem <= itemHeight) {
+                    position = (directionCoef * item.width()) - (directionCoef * item.width() * Math.tan(start));
+                }
+
+                if (item.position().left !== position) {
+                    item.css('left', position);
+                }
+            }
+        }
 
     function Scrollah(element, options) {
         this.element = $(element);
@@ -35,29 +78,6 @@
         this.init();
     }
 
-    function recalculateItemPosition(scrollBottom, item, directionCoef) {
-        var itemHeight = item.height() - 0.25 * item.height(),
-            itemTop = item.offset().top,
-            scrollOverItem = scrollBottom - itemTop,
-            ratio = item.width() / itemHeight,
-            decrease = (Math.PI / 2) / item.width();
-            position = scrollOverItem > itemHeight ? 0 : directionCoef * item.width(),
-            itemLeft = item.position().left,
-            
-            start = parseFloat(item.attr('data-sin')) || Math.PI / 2;
-        
-        
-        if (scrollOverItem >= 0 && scrollOverItem <= itemHeight) {
-            position = (directionCoef * (itemHeight - scrollOverItem) * ratio) * Math.sin(start);
-            start -= decrease;
-        }
-
-        item.attr('data-sin', start);
-        if (item.position().left !== position) {
-            item.css('left', position);
-        }
-    }
-
     Scrollah.prototype = {
 
         init: function() {
@@ -80,16 +100,17 @@
         },
 
         recalculateItemsPosition: function(scrollBottom) {
-            var item, i, length = this._items.length, even;
+            var item, i, length = this._items.length, even, fn;
+            fn = posFns[this.options.easeFn];
 
             for (var i = 1; i <= length; i++) {
                 even = i % 2 === 0;
                 coef = even ? 1 : -1;
                 item = this._itemsQ[i-1];
 
-                (function (scrollBottom, item) {
-                    recalculateItemPosition(scrollBottom, item, coef);
-                })(scrollBottom, item);
+                (function (fn, scrollBottom, item) {
+                    fn(scrollBottom, item, coef);
+                })(fn, scrollBottom, item);
             };
         }
 
