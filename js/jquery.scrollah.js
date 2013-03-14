@@ -4,7 +4,8 @@
         defaults = {
             itemSelector: '',
             scrollElementSelector: 'window',
-            easeFn: 'sin'
+            easeFn: 'sin',
+            pagerParamName: 'page'
         },
         posFns = {
             'sin': function(scrollBottom, item, directionCoef) {
@@ -31,16 +32,17 @@
                 }
             },
             'tan': function(scrollBottom, item, directionCoef) {
-                var itemHeight = item.height() + 0.4 * item.height(),
+                var itemHeight = 1.5 * item.height(),
+                    itemWidth = item.width(),
                     itemTop = item.offset().top,
                     scrollOverItem = scrollBottom - itemTop,
                     itemLeft = item.position().left,
-                    position = scrollOverItem > itemHeight ? 0 : directionCoef * item.width(),
+                    position = scrollOverItem > itemHeight ? 0 : directionCoef * itemWidth,
                     start = scrollOverItem * (1 / itemHeight) * (Math.PI / 4),
-                    ratio = item.width() / itemHeight;
+                    ratio = itemWidth / itemHeight;
 
                 if (scrollOverItem >= 0 && scrollOverItem <= itemHeight) {
-                    position = (directionCoef * item.width()) - (directionCoef * item.width() * Math.tan(start));
+                    position = (directionCoef * itemWidth) - (directionCoef * itemWidth * Math.tan(start));
                 }
 
                 if (item.position().left !== position) {
@@ -81,7 +83,8 @@
     Scrollah.prototype = {
 
         init: function() {
-            var self = this;
+            var self = this,
+                scrollBottom = this._scrollElement.scrollTop() + this._window.height();
 
             this.element.css({
                 "position": "relative",
@@ -97,10 +100,18 @@
 
                 self.recalculateItemsPosition(scrollBottom);
             });
+
+            this.options.scrollElement.on('resize.Scrolling', function(event) {
+                var scrollBottom = self._scrollElement.scrollTop() + self._window.height();
+
+                self.recalculateItemsPosition(scrollBottom);
+            });
+
+            self.recalculateItemsPosition(scrollBottom);
         },
 
         recalculateItemsPosition: function(scrollBottom) {
-            var item, i, length = this._items.length, even, fn;
+            var item, i, length = this._items.length, even, fn, windowHeight = this._window.height();
             fn = posFns[this.options.easeFn];
 
             for (var i = 1; i <= length; i++) {
@@ -108,9 +119,11 @@
                 coef = even ? 1 : -1;
                 item = this._itemsQ[i-1];
 
-                (function (fn, scrollBottom, item) {
-                    fn(scrollBottom, item, coef);
-                })(fn, scrollBottom, item);
+                if (item.offset().top >= windowHeight) {
+                    (function (fn, scrollBottom, item) {
+                        fn(scrollBottom, item, coef);
+                    })(fn, scrollBottom, item);
+                }
             };
         }
 
