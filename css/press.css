@@ -208,6 +208,12 @@ p {
 .container-menu {
   margin-bottom: 35px;
 }
+.scrollspy-fixed {
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  background-color: #ffffff;
+}
 .navbar-main {
   margin-bottom: 1px;
 }
@@ -294,6 +300,12 @@ p {
 .navbar-sub .navbar-inner {
   min-height: 30px;
   border-color: #666666;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  border-bottom-left-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  border-bottom-right-radius: 0;
   background-color: #e4e4e4;
   background-image: -moz-linear-gradient(top, #d8d8d8, #f7f7f7);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#d8d8d8), to(#f7f7f7));

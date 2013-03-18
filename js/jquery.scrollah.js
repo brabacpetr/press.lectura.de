@@ -108,7 +108,7 @@
 
         itemShowed: function() {
             this._itemsShowed++;
-            console.log(this._itemsShowed);
+
             var itemsCount = this._itemsShowed + this.options.itemsLoadOffset,
                 page = parseInt(itemsCount / this._perPage, 10) + 1;
 

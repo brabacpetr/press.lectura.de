@@ -2,6 +2,13 @@
     margin-bottom: @baseMarginBottom;
 }
 
+.scrollspy-fixed {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    background-color: @white;
+}
+
 .navbar-main {
     margin-bottom: 1px;
 
@@ -83,7 +90,8 @@
     .navbar-inner {
         min-height: 30px;
         border-color: @submenu-border-gray;
-
+        .border-bottom-left-radius(0);
+        .border-bottom-right-radius(0);
         #gradient > .vertical(@submenu-navbar-dark, @submenu-navbar-light);
     }
 
