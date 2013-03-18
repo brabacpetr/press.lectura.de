@@ -1,20 +1,66 @@
-.navbar-main {
+.container-menu {
     margin-bottom: @baseMarginBottom;
+}
+
+.navbar-main {
+    margin-bottom: 1px;
 
     .navbar-inner {
-        padding-left: 5px;
-        padding-right: 5px;
-
-        #gradient > .vertical(@main-navbar-light, @main-navbar-dark);
+        position: static;
+        padding-left: 0px;
+        padding-right: 0px;
+    
+        background: transparent;
         border: 0;
-        .border-radius(5px);
+
     }
 
     .nav {
+        & > li:first-child {
+            .border-top-left-radius(5px);
+            .border-bottom-left-radius(5px);
+        }
+
+            
         & > li {
             padding-left: 20px;
             padding-right: 20px;
             border-right: 1px solid @white;
+            margin-top: 3px;
+            #gradient > .vertical(@main-navbar-light, @main-navbar-dark);
+
+            &.active {
+                padding-bottom: 4px;
+                margin-top: 0;
+                margin-right: 1px;
+                position: relative;
+                z-index: 1000;
+                background: @submenu-navbar-dark;
+                color: @black;
+                border: 1px solid @submenu-border-gray;
+                border-bottom: 0;
+                .border-top-left-radius(3px);
+                .border-top-right-radius(3px);
+
+                [class^="icon-"], [class*=" icon-"] {
+                    background-image: url("../img/glyphicons-halflings.png");
+                }
+
+                & > a {
+                    display: block;
+                    background: transparent;
+                    .box-shadow(none);
+
+                    &:hover {
+                        background: transparent;
+                        .box-shadow(none);
+                    }
+                }
+            }
+
+            [class^="icon-"], [class*=" icon-"] {
+                background-image: url("../img/glyphicons-halflings-white.png");
+            }            
 
             & > a {
                 color: @white;
@@ -30,5 +76,94 @@
 }
 
 .navbar-sub {
+    position: relative;
+    top: -2px;
+    margin-bottom: 0;
     
+    .navbar-inner {
+        min-height: 30px;
+        border-color: @submenu-border-gray;
+
+        #gradient > .vertical(@submenu-navbar-dark, @submenu-navbar-light);
+    }
+
+    .nav {
+        & > li {
+            &:hover {
+                & > a {
+                    color: @black;
+                    text-decoration: underline;
+
+                    [class^="icon-"], [class*=" icon-"] {
+                        background-image: url("../img/glyphicons-halflings.png");
+                    }            
+                }
+
+                & > .dropdown-menu {
+                    display: block;
+                }
+            }
+
+            [class^="icon-"], [class*=" icon-"] {
+                background-image: url("../img/glyphicons-halflings-gray.png");
+            }            
+
+            & > a {
+                padding: 5px 50px;
+                color: @submenu-text-gray;
+                text-decoration: none;
+
+                &:hover, &.active {
+                    color: @black;
+                    text-decoration: underline;
+
+                    [class^="icon-"], [class*=" icon-"] {
+                        background-image: url("../img/glyphicons-halflings.png");
+                    }            
+                }
+            }
+
+            .dropdown-menu:before, .dropdown-menu:after {
+                display: none;
+            }
+
+            .dropdown-menu {
+                display: none;
+                margin-top: 0;
+                background: @submenu-navbar-light;
+                border: 1px solid @submenu-border-gray;
+                .border-top-left-radius(0);
+                .border-top-right-radius(0);
+
+                & > li {
+                    border-bottom: 1px solid @submenu-dropdown-border-light;
+
+                    & > .dropdown-menu {
+                        top: 0%;
+                        left: 97%;
+                        border-color: #353535;
+                    }
+
+                    &:hover > .dropdown-menu {
+                        display: block;
+                    }
+
+                    & > a {
+                        padding-right: 10px;
+                        padding-left: 10px;
+                        color: @submenu-border-gray;
+
+                        &:hover {
+                            background: @button-green;
+                            color: @white;
+                        }
+                    }
+                }
+
+                & > li:last-child {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
 }
