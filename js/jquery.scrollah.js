@@ -102,6 +102,8 @@
                     (function (fn, element, scrollBottom, item) {
                         fn(element, scrollBottom, item, coef);
                     })(fn, el, scrollBottom, item);
+                } else {
+                    this.itemShowed();
                 }
             };
         },
