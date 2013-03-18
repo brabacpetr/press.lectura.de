@@ -136,12 +136,19 @@
                 .border-top-right-radius(0);
 
                 & > li {
+                    position: relative;
                     border-bottom: 1px solid @submenu-dropdown-border-light;
+
+                    .icon-chevron-right {
+                        position: absolute;
+                        right: 10px;
+                    }
 
                     & > .dropdown-menu {
                         top: 0%;
                         left: 97%;
                         border-color: #353535;
+                        .border-radius(0);
                     }
 
                     &:hover > .dropdown-menu {
