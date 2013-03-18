@@ -108,7 +108,7 @@
 
         itemShowed: function() {
             this._itemsShowed++;
-
+            console.log(this._itemsShowed);
             var itemsCount = this._itemsShowed + this.options.itemsLoadOffset,
                 page = parseInt(itemsCount / this._perPage, 10) + 1;
 
@@ -153,6 +153,7 @@
                     itemTop = item.offset().top,
                     scrollOverItem = scrollBottom - itemTop,
                     position = scrollOverItem > itemHeight ? 0 : directionCoef * itemWidth,
+                    boundary = item.width() * 0.5,
                     start;
 
                 if (scrollOverItem >= 0 && scrollOverItem <= itemHeight) {
@@ -168,6 +169,10 @@
                     } else if(Math.abs(Math.floor(position)) === itemWidth) {
                         element.trigger('scrollah.item.hidden');
                     }
+                }
+
+                if (item.position().left !== position) {
+                    
                 }
             }
         }
