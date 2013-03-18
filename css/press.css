@@ -475,6 +475,12 @@ p {
 .list-wrapper .article-main .footer {
   float: left;
 }
+.sidebar .affix {
+  top: 45%;
+}
+.sidebar .affix-top {
+  position: static;
+}
 .sidebar > h3 {
   color: #154374;
   font-size: 1.3em;
