@@ -22,7 +22,7 @@
         this._defaults = defaults;
         this._name = pluginName;
         this.prepareItems();
-        this._itemsShowed = 0;
+        this._itemsShowed = [];
         this._perPage = this._items.length;
         this._window = this._scrollElement = $(window);
 
@@ -56,11 +56,11 @@
                 self.recalculateItemsPosition(scrollBottom);
             });
 
-            this.element.on('scrollah.item.showed', function(event) {
-                self.itemShowed();
+            this.element.on('scrollah.item.showed', function(event, index) {
+                self.itemShowed(index);
             });
-            this.element.on('scrollah.item.hidden', function(event) {
-                self.itemHidden();
+            this.element.on('scrollah.item.hidden', function(event, index) {
+                self.itemHidden(index);
             });
             this.element.on('scrollah.loaded', function(event, items) {
                 var scrollBottom = self._scrollElement.scrollTop() + self._window.height(),
@@ -68,7 +68,6 @@
 
                 self.element.append(responseItems);
                 self.prepareItems();
-                self._itemsShowed += responseItems.length;
                 self.recalculateItemsPosition(scrollBottom);
             });
 
@@ -99,19 +98,19 @@
                 item = this._itemsQ[i-1];
 
                 if (item.offset().top >= windowHeight) {
-                    (function (fn, element, scrollBottom, item) {
-                        fn(element, scrollBottom, item, coef);
-                    })(fn, el, scrollBottom, item);
-                } else {
-                    this.itemShowed();
+                    (function (fn, element, scrollBottom, item, index) {
+                        fn(element, scrollBottom, item, coef, index);
+                    })(fn, el, scrollBottom, item, i);
                 }
             };
         },
 
-        itemShowed: function() {
-            this._itemsShowed++;
+        itemShowed: function(index) {
+            if (this._itemsShowed.indexOf(index) === -1) {
+                this._itemsShowed.push(index);
+            }
 
-            var itemsCount = this._itemsShowed + this.options.itemsLoadOffset,
+            var itemsCount = this._itemsShowed.length + this.options.itemsLoadOffset,
                 page = parseInt(itemsCount / this._perPage, 10) + 1;
 
             if (itemsCount === this._items.length) {
@@ -119,9 +118,11 @@
             }
         },
 
-        itemHidden: function() {
-            if (this._itemsShowed > 0) {
-                this._itemsShowed--;
+        itemHidden: function(index) {
+            var ind = this._itemsShowed.indexOf(index);
+
+            if (ind > -1) {
+                this._itemsShowed.splice(ind, 1);
             }
         },
 
@@ -149,7 +150,7 @@
                     item.attr('data-sin', 0);
                 }
             },
-            'tan': function(element, scrollBottom, item, directionCoef) {
+            'tan': function(element, scrollBottom, item, directionCoef, index) {
                 var itemHeight = 1.5 * item.height(),
                     itemWidth = item.width(),
                     itemTop = item.offset().top,
@@ -167,14 +168,10 @@
                     item.css('left', position);
 
                     if (Math.floor(position) === 0) {
-                        element.trigger('scrollah.item.showed');
+                        element.trigger('scrollah.item.showed', index);
                     } else if(Math.abs(Math.floor(position)) === itemWidth) {
-                        element.trigger('scrollah.item.hidden');
+                        element.trigger('scrollah.item.hidden', index);
                     }
-                }
-
-                if (item.position().left !== position) {
-                    
                 }
             }
         }
