@@ -39,7 +39,12 @@
 
         processScroll: function() {
             var i, scrollTop = $window.scrollTop(), 
-                offsetTop = this._offsetTop - this.options.offset;
+                offsetTop = this._offsetTop - this.options.offset,
+                elementHeight = this.element.height();
+
+            if (this._wrapper.height() !== elementHeight) {
+                this._wrapper.css('height', elementHeight);
+            }
 
             if (scrollTop >= offsetTop && !this._isFixed) {
                 this._isFixed = 1;
