@@ -27,14 +27,6 @@ $(document).ready(function() {
     $('.scrollspy').scrollAffix();
 
     if (sideBanner) {
-        sideBanner.scrollAffix({offset: $(window).height() * 0.3});
+        sideBanner.scrollAffix({offset: $(window).height() * 0.35});
     }
-
-/*
-    $nav.on('click', function () {
-        if (!isFixed) setTimeout(function () {
-            $win.scrollTop($win.scrollTop() - 47);
-        }, 10);
-    })
-*/
 });

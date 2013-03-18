@@ -40,7 +40,7 @@
         processScroll: function() {
             var i, scrollTop = $window.scrollTop(), 
                 offsetTop = this._offsetTop - this.options.offset,
-                elementHeight = this.element.height();
+                elementHeight = this.element.outerHeight();
 
             this._wrapper.css('height', elementHeight);
 
