@@ -125,6 +125,7 @@ p {
   background-position: -161px 0;
 }
 .navbar-press-top {
+  position: static;
   margin-bottom: 35px;
 }
 .navbar-press-top .container > .offset1 {
