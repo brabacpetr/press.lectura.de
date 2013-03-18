@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    var articleList = $('#article-list');
+    var articleList = $('#article-list'),
+        sideBanner = $('.events-banner');
     
     $('.dropdown-toggle').dropdown();
 
@@ -23,35 +24,17 @@ $(document).ready(function() {
         });
     }
 
-    // fix sub nav on scroll
-    var $win = $(window)
-        , $nav = $('.scrollspy')
-        , navTop = $nav.length && $nav.offset().top
-        , isFixed = 0
-        , posLeft = $nav.length && $nav.offset().left;
+    $('.scrollspy').scrollAffix();
 
-    $('#scrollspy-wrapper').css('height', $nav.height());
-    processScroll();
+    if (sideBanner) {
+        sideBanner.scrollAffix({offset: $(window).height() * 0.3});
+    }
 
-    // hack sad times - holdover until rewrite for 2.1
+/*
     $nav.on('click', function () {
         if (!isFixed) setTimeout(function () {
             $win.scrollTop($win.scrollTop() - 47);
         }, 10);
     })
-
-    $win.on('scroll', processScroll);
-
-    function processScroll() {
-        var i, scrollTop = $win.scrollTop()
-
-        if (scrollTop >= navTop && !isFixed) {
-            isFixed = 1;
-            $nav.addClass('scrollspy-fixed');
-            $nav.css('left', posLeft);
-        } else if (scrollTop <= navTop && isFixed) {
-            isFixed = 0;
-            $nav.removeClass('scrollspy-fixed');
-        }
-    }
+*/
 });

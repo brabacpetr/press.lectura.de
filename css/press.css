@@ -209,11 +209,13 @@ p {
 .container-menu {
   margin-bottom: 35px;
 }
-.scrollspy-fixed {
+.scroll-affix-fixed {
   position: fixed;
   z-index: 99999;
   top: 0;
   background-color: #ffffff;
+  left: 0;
+  right: 0;
 }
 .navbar-main {
   margin-bottom: 1px;
@@ -475,12 +477,6 @@ p {
 .list-wrapper .article-main .footer {
   float: left;
 }
-.sidebar .affix {
-  top: 45%;
-}
-.sidebar .affix-top {
-  position: static;
-}
 .sidebar > h3 {
   color: #154374;
   font-size: 1.3em;
@@ -494,6 +490,14 @@ p {
 }
 .sidebar .btn-dark {
   margin-top: 10px;
+}
+.sidebar .scroll-affix-fixed {
+  position: fixed;
+  z-index: 99999;
+  top: 30%;
+  background-color: #ffffff;
+  left: auto;
+  right: auto;
 }
 .events {
   padding-bottom: 10px;
