@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var articleList = $('#article-list'),
-        sideBanner = $('.events-banner');
+        sideBanner = $('#side-banner');
     
     $('.dropdown-toggle').dropdown();
 
