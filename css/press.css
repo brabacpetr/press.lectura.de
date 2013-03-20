@@ -6,21 +6,21 @@
   font-family: 'Maven Pro';
   src: url('../fonts/regular/maven_pro_regular-webfont.eot');
   src: url('../fonts/regular/maven_pro_regular-webfont.eot?#iefix') format('eot'), url('../fonts/regular/maven_pro_regular-webfont.woff') format('woff'), url('../fonts/regular/maven_pro_regular-webfont.ttf') format('truetype'), url('../fonts/regular/maven_pro_regular-webfont.svg#webfontOM8fITNz') format('svg');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'Maven Pro';
   src: url('../fonts/medium/maven_pro_medium-webfont.eot');
   src: url('../fonts/medium/maven_pro_medium-webfont.eot?#iefix') format('eot'), url('../fonts/medium/maven_pro_medium-webfont.woff') format('woff'), url('../fonts/medium/maven_pro_medium-webfont.ttf') format('truetype'), url('../fonts/medium/maven_pro_medium-webfont.svg#webfontNOU7iUTL') format('svg');
-  font-weight: bold;
+  font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: 'Maven Pro';
   src: url('../fonts/bold/maven_pro_bold-webfont.eot');
   src: url('../fonts/bold/maven_pro_bold-webfont.eot?#iefix') format('eot'), url('../fonts/bold/maven_pro_bold-webfont.woff') format('woff'), url('../fonts/bold/maven_pro_bold-webfont.ttf') format('truetype'), url('../fonts/bold/maven_pro_bold-webfont.svg#webfontNOU7iUTL') format('svg');
-  font-weight: bolder;
+  font-weight: 700;
   font-style: normal;
 }
 body {
@@ -29,27 +29,31 @@ body {
 h1 {
   font-size: 2em;
   line-height: 1.2em;
+  font-weight: 700;
 }
 h2 {
   font-size: 1.8em;
   line-height: 1.3em;
   color: #999999;
-  font-weight: bolder;
+  font-weight: 700;
   border-bottom: 1px solid #cccccc;
   width: 100%;
 }
 h3 {
   font-size: 1.6em;
   line-height: 1em;
+  font-weight: 500;
 }
 h4 {
   font-size: 1.4em;
   line-height: 1em;
+  font-weight: 500;
 }
 p {
   font-size: 1em;
   line-height: 1.3em;
   color: #4b4b4b;
+  font-weight: 400;
 }
 .btn-dark {
   color: #ffffff;
@@ -507,7 +511,7 @@ p {
   color: #154374;
   font-size: 1.3em;
   line-height: 1.5em;
-  font-weight: normal;
+  font-weight: 500;
   padding-top: 5px;
   border-bottom: 1px solid #cccccc;
 }
