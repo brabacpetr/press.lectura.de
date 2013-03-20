@@ -30,7 +30,7 @@ $(document).ready(function() {
         sideBanner.scrollAffix({
             offset: $(window).height() * 0.35, 
             stopElement: $('.footer-container'),
-            stopElementOffset: 100
+            stopElementOffset: 70
         });
     }
 });
