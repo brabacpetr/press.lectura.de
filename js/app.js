@@ -27,6 +27,10 @@ $(document).ready(function() {
     $('.scrollspy').scrollAffix();
 
     if (sideBanner) {
-        sideBanner.scrollAffix({offset: $(window).height() * 0.35});
+        sideBanner.scrollAffix({
+            offset: $(window).height() * 0.35, 
+            stopElement: $('.footer-container'),
+            stopElementOffset: 100
+        });
     }
 });

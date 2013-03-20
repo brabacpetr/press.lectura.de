@@ -4,7 +4,9 @@
         addedClass = 'scroll-affix-fixed',
         $window = $(window),
         defaults = {
-            offset: 0
+            offset: 0,
+            stopElement: null,
+            stopElementOffset: 0
         };
 
     // The actual plugin constructor
@@ -18,6 +20,7 @@
         this._wrapperId = '#' + Date.now() + 'sc-aff-wrapper';
         this._offsetTop = 0;
         this._isFixed = false;
+        this._isStopped = false;
 
         this.init();
     }
@@ -39,18 +42,43 @@
 
         processScroll: function() {
             var i, scrollTop = $window.scrollTop(), 
+                scrollBottom = scrollTop + $window.height(),
                 offsetTop = this._offsetTop - this.options.offset,
-                elementHeight = this.element.outerHeight();
+                elementHeight = this.element.outerHeight(),
+                checkStopElement = this.options.stopElement ? true : false,
+                elementBottom = this.element.offset().top + elementHeight;
+                stopElementOffset = checkStopElement ? this.options.stopElement.offset().top - this.options.stopElementOffset : 0,
 
             this._wrapper.css('height', elementHeight);
+            
+            if (checkStopElement && this._isFixed && scrollTop + elementHeight + this._posTop >= stopElementOffset) {
+                this.element.css({
+                    position: 'absolute',
+                    top: stopElementOffset - elementHeight
+                });
+                this._isFixed = false;
+                this._isStopped = true;
+            } else {
 
-            if (scrollTop >= offsetTop && !this._isFixed) {
-                this._isFixed = 1;
-                this.element.addClass(addedClass);
-            } else if (scrollTop <= offsetTop && this._isFixed) {
-                this._isFixed = 0;
-                this.element.removeClass(addedClass);
+                if (checkStopElement && this._isStopped && scrollTop + elementHeight + this._posTop <= stopElementOffset) {
+                    this.element.css({
+                        position: '',
+                        top: '',
+                    });
+                    this._isStopped = false;
+                    this._isFixed =  true;
+                } else if (!this._isStopped) {
+                    if (scrollTop >= offsetTop && !this._isFixed) {
+                        this._isFixed = 1;
+                        this.element.addClass(addedClass);
+                        this._posTop = this.element.position().top;
+                    } else if (scrollTop <= offsetTop && this._isFixed) {
+                        this._isFixed = 0;
+                        this.element.removeClass(addedClass);
+                    }
+                }
             }
+            
         }
     };
 
