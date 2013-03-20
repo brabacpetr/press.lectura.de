@@ -484,6 +484,9 @@ p {
 .list-wrapper .article h3 {
   margin-top: 0;
 }
+.list-wrapper .article h3 a {
+  color: #333333;
+}
 .list-wrapper .article-left > .side-wrapper {
   float: left;
   margin-right: 20px;
