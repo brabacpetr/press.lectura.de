@@ -4,7 +4,7 @@
         defaults = {
             itemSelector: '',
             scrollElementSelector: 'window',
-            easeFn: 'sin',
+            easeFn: 'tan',
             pagerParamName: 'page',
             itemsLoadOffset: 0
         };
@@ -24,6 +24,7 @@
         this.prepareItems();
         this._itemsShowed = [];
         this._perPage = this._items.length;
+        this._page = 1;
         this._window = this._scrollElement = $(window);
 
         if (this.options.scrollElementSelector !== 'window') {
@@ -106,6 +107,11 @@
         },
 
         itemShowed: function(index) {
+            if (this._itemsShowed.length % this._perPage === 0) {
+                this._page = this._itemsShowed.length / this._perPage + 1;
+                this.element.trigger('scrollah.pageChanged', [this._page]);
+            }
+
             if (this._itemsShowed.indexOf(index) === -1) {
                 this._itemsShowed.push(index);
             }
@@ -123,6 +129,14 @@
 
             if (ind > -1) {
                 this._itemsShowed.splice(ind, 1);
+
+                if (this._itemsShowed.length % this._perPage === 0) {
+                    this._page = this._itemsShowed.length / this._perPage;
+                    
+                    if (this._page > 0) {
+                        this.element.trigger('scrollah.pageChanged', [this._page]);
+                    }
+                }
             }
         },
 

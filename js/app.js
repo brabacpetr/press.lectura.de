@@ -22,6 +22,10 @@ $(document).ready(function() {
                 }
             });
         });
+
+        articleList.on('scrollah.pageChanged', function(event, page) {
+            console.log('page changed to ', page);
+        });
     }
 
     $('.scrollspy').scrollAffix();
